@@ -7,7 +7,7 @@ import { Container, Nav, NavItem } from "reactstrap";
 import AppContext from "./context";
 
 const Layout = (props) => {
-const title = "Welcome to Nextjs";
+const title = "Welcome To Resteraurant Finder";
 const {user} = useContext(AppContext);
   return (
     <div>
@@ -26,16 +26,29 @@ const {user} = useContext(AppContext);
       <header>
         <style jsx>
           {`
+          
             a {
-              color: white;
+               color: white;
+                text-decoration: underline;
+                font-size: 1.2rem;
+                font-family: 'Playfair Display', serif;
+            }
+            a:hover {
+                color: blue;
             }
             h5 {
               color: white;
               padding-top: 11px;
             }
+            .navbar-brand:hover {
+              color: blue;
+            }
+            .nav-link {
+              font-size: 1rem;
+            }
           `}
         </style>
-        <Nav className="navbar navbar-dark bg-dark">
+        <Nav className="navbar navbar-dark bg-danger">
           <NavItem>
             <Link href="/">
               <a className="navbar-brand">Home</a>
@@ -46,7 +59,7 @@ const {user} = useContext(AppContext);
               <h5>{user.username}</h5>
             ) : (
               <Link href="/register">
-                <a className="nav-link"> Sign up</a>
+                <a className="nav-link"> Sign Up</a>
               </Link>
             )}
           </NavItem>
@@ -65,14 +78,16 @@ const {user} = useContext(AppContext);
               </Link>
             ) : (
               <Link href="/login">
-                <a className="nav-link">Sign in</a>
+                <a className="nav-link">Sign In</a>
               </Link>
             )}
           </NavItem>
         </Nav>
       </header>
       <Container>{props.children}</Container>
+    
     </div>
+    
   );
 };
 

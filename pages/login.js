@@ -34,14 +34,17 @@ function Login(props) {
 
   return (
     <Container>
+    
       <Row>
         <Col sm="12" md={{ size: 5, offset: 3 }}>
           <div className="paper">
             <div className="header">
-              {/* <img src="http://localhost:1337/uploads/5a60a9d26a764e7cba1099d8b157b5e9.png" /> */}
-              <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/MIT_logo.png/220px-MIT_logo.png" />
+              <Container>
+            <img src="http://localhost:1337/uploads/foodApp.jpg" />
+              </Container>
             </div>
             <section className="wrapper">
+            <h2>Login </h2> <br />
               {Object.entries(error).length !== 0 &&
                 error.constructor === Object &&
                 error.message.map((error) => {
@@ -59,16 +62,18 @@ function Login(props) {
               <Form>
                 <fieldset disabled={loading}>
                   <FormGroup>
-                    <Label>Email:</Label>
+                    <Label  className="inputletters">Email:</Label>
                     <Input
+                      placeholder="Enter Email"
                       onChange={(event) => onChange(event)}
                       name="identifier"
                       style={{ height: 50, fontSize: "1.2em" }}
                     />
                   </FormGroup>
                   <FormGroup style={{ marginBottom: 30 }}>
-                    <Label>Password:</Label>
+                    <Label className="inputletters">Password:</Label>
                     <Input
+                      placeholder="Enter Password"
                       onChange={(event) => onChange(event)}
                       type="password"
                       name="password"
@@ -77,14 +82,14 @@ function Login(props) {
                   </FormGroup>
 
                   <FormGroup>
-                    <span>
+                    {/* <span>
                       <a href="">
                         <small>Forgot Password?</small>
                       </a>
-                    </span>
+                    </span> */}
                     <Button
-                      style={{ float: "right", width: 120 }}
-                      color="primary"
+                      // style={{ float: "right", width: 120 }}
+                      color="white"
                       onClick={(e) => {
                         setLoading(true);
                         login(data.identifier, data.password)
@@ -108,8 +113,22 @@ function Login(props) {
           </div>
         </Col>
       </Row>
-      <style jsx>
+      <style jsx global>
         {`
+        .inputletters {
+          font-size: 1.2em;
+          font-weight: bold;
+          font-family: 'Playfair Display', serif;
+        }
+        h2{
+          text-align: center;
+          text-transform: uppercase;
+          font-size: 1.5em;
+          font-weight: bold;
+          text-decoration: underline;
+          color: black;
+          font-family: 'Playfair Display', serif;
+        }
         
         .paper {
           border: 9px solid lightgray;
@@ -119,6 +138,7 @@ function Login(props) {
           border-radius: 6px;
           margin-top: 90px;
           background-color: lightblue;
+          
         }
         .notification {
           color: #ab003c;
@@ -134,10 +154,22 @@ function Login(props) {
           padding: 10px 30px 20px 30px !important;
         }
         a {
-          color: blue !important;
+          text-decoration: underline;
+          font-weight: bold;
+          
         }
         img {
-          margin: 15px 30px 10px 50px;
+          margin: 5px 3px 20px 0px;
+          width: 100%;
+          height: 150px;
+
+        }
+        Button {
+          color: black;
+        }
+        Button:hover {
+          background-color: blue;
+          color: white;
         }
       `}
       </style>

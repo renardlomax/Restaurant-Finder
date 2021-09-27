@@ -5,13 +5,16 @@ import Router from "next/router";
 import Cookie from "js-cookie";
 import axios from "axios";
 
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:1337";
 
 //register a new user
-export const registerUser = (username, email, password) => {
+export const registerUser = (username, email, password ) => {
   //prevent function from being ran on the server
   if (typeof window === "undefined") {
+    
     return;
+    
   }
   return new Promise((resolve, reject) => {
     axios
@@ -73,7 +76,7 @@ export const withAuthSync = (Component) => {
   const Wrapper = (props) => {
     const syncLogout = (event) => {
       if (event.key === "logout") {
-        Router.push("/login");
+        Router.push("/");
       }
     };
 

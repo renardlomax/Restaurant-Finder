@@ -2,6 +2,7 @@ import React from "react";
 
 import { CardElement } from "@stripe/react-stripe-js";
 
+
 function CardSection(props) {
   return (
     <div>
@@ -20,7 +21,9 @@ function CardSection(props) {
               </div>
               <br />
               <div className="order-button-wrapper">
+                
                 <button onClick={props.submitOrder}>Confirm order</button>
+               
               </div>
               {props.stripeError ? (
                 <div>{props.stripeError.toString()}</div>
@@ -30,6 +33,11 @@ function CardSection(props) {
           </fieldset>
         </div>
       </div>
+      {/* .order-button-wrapper {
+            display: flex;
+            width: 100%;
+            align-items: flex-end;
+            justify-content: flex-end; */}
       <style jsx>
         {`
           .order-button-wrapper {
@@ -37,6 +45,7 @@ function CardSection(props) {
             width: 100%;
             align-items: flex-end;
             justify-content: flex-end;
+            
           }
         `}
       </style>

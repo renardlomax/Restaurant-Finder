@@ -1,6 +1,6 @@
 
 import React, { useState, useContext } from "react";
-import { FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Label, Input, Container } from "reactstrap";
 import fetch from "isomorphic-fetch";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CardSection from "./cardSection";
@@ -28,7 +28,7 @@ function CheckoutForm() {
 
   async function submitOrder() {
     // event.preventDefault();
-
+  
     // // Use elements.getElement to get a reference to the mounted Element.
     const cardElement = elements.getElement(CardElement);
 
@@ -56,7 +56,7 @@ function CheckoutForm() {
       setError(response.statusText);
       console.log("SUCCESS")
     }
-
+    alert('Order was successful')
     // OTHER stripe methods you can use depending on app
     // // or createPaymentMethod - https://stripe.com/docs/js/payment_intents/create_payment_method
     // stripe.createPaymentMethod({
@@ -73,30 +73,51 @@ function CheckoutForm() {
   }
 
   return (
+    
     <div className="paper">
-      <h5>Your information:</h5>
+      <section>
+      <h2 className="checkout">Checkout</h2> 
+      <Label className="letters1">Your information:</Label>
       <hr />
       <FormGroup style={{ display: "flex" }}>
         <div style={{ flex: "0.90", marginRight: 10 }}>
-          <Label>Address</Label>
+          <Label className="letters">Address</Label>
           <Input name="address" onChange={onChange} />
         </div>
       </FormGroup>
       <FormGroup style={{ display: "flex" }}>
         <div style={{ flex: "0.65", marginRight: "6%" }}>
-          <Label>City</Label>
+          <Label className="letters">City</Label>
           <Input name="city" onChange={onChange} />
         </div>
         <div style={{ flex: "0.25", marginRight: 0 }}>
-          <Label>State</Label>
+          <Label className="letters">State</Label>
           <Input name="state" onChange={onChange} />
         </div>
       </FormGroup>
 
       <CardSection data={data} stripeError={error} submitOrder={submitOrder} />
-
+      </section>
       <style jsx global>
         {`
+        .checkout {
+          text-align: center;
+          text-transform: uppercase;
+          font-family: playfair display, serif;
+          font-weight: bold;
+          font-size: 1.5rem;
+          
+          
+          
+        }
+        .letters{
+          font-size: 1.2 rem;
+          text-decoration: underline;
+          font-weight: bold;
+        }
+        .letters1{
+          font-weight: bold;
+        }
           .paper {
             border: 1px solid lightgray;
             box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
@@ -104,9 +125,11 @@ function CheckoutForm() {
               0px 2px 1px -1px rgba(0, 0, 0, 0.12);
             height: 550px;
             padding: 30px;
-            background: #fff;
+            background: lightblue;
             border-radius: 6px;
-            margin-top: 90px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            padding-bottom: 30px;
           }
           .form-half {
             flex: 0.5;

@@ -29,6 +29,7 @@ function Cart() {
                 key={item.id}
               >
                 <div>
+                  
                   <span id="item-price">&nbsp; ${item.price}</span>
                   <span id="item-name">&nbsp; {item.name}</span>
                 </div>
@@ -92,11 +93,11 @@ const checkoutItems = ()=>{
     <div>
       <h1> Cart</h1>
       <Card style={{ padding: "10px 5px" }} className="cart">
-        <CardTitle style={{ margin: 10 }}>Your Order:</CardTitle>
+        <CardTitle className="input">Your Order:</CardTitle>
         <hr />
         <CardBody style={{ padding: 10 }}>
           <div style={{ marginBottom: 6 }}>
-            <small>Items:</small>
+            <small className="input">Items:</small>
           </div>
           <div>
             {renderItems()}
@@ -121,6 +122,15 @@ const checkoutItems = ()=>{
         #item-name {
           font-size: 1.3em;
           color: rgba(97, 97, 97, 1);
+        }
+        h1{
+          font-family: playfair display, serif;
+          font-size:  1.8em;
+        }
+        .input {
+          fon-family: playfair display, serif;
+          font-size: 1.2em;
+          font-weight:bold;
         }
       `}</style>
     </div>

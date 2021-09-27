@@ -1,6 +1,6 @@
 import { gql,useQuery} from '@apollo/client';
 import {useContext, useState} from 'react';
-import client from '../pages/client';
+import client from './client';
 import Link from "next/link";
 import AppContext from "./context"
 import {
@@ -22,6 +22,7 @@ function RestaurantList(props){
       restaurants {
         id
         name
+        
         description
         image {
           url
@@ -34,6 +35,7 @@ function RestaurantList(props){
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
   console.log(`Query Data: ${data.restaurants}`)
+  console.log(data.restaurants)
 
 
 let searchQuery = data.restaurants.filter((res) =>{
@@ -51,18 +53,34 @@ if(searchQuery.length > 0){
           `http://localhost:1337`+ res.image.url
           }
         />
-        <CardBody>
+        <CardBody className="text-card">
           <CardText>{res.description}</CardText>
         </CardBody>
         <div className="card-footer">
           <Link as={`/restaurants/${res.id}`}
             href={`/restaurants?id=${res.id}`}
-          >
-        <Button color="info">{res.name}</Button>
+           >
+        <Button color="danger">{res.name}</Button>
+      
         </Link>
+        </div>
+        <div>
+        <style jsx global>{`
+            .text-card{
+              font-size: 1.1 rem;
+              font-weight: bold;
+            }
+            
+            Button:hover{
+              color: white;
+              background-color: blue;
+            }
+          `}
+          </style>
         </div>
       </Card>
     </Col>
+    
   ))
 
   return(
@@ -73,10 +91,16 @@ if(searchQuery.length > 0){
     </Row>
  
     </Container>
- 
+
   )
+  
 } else {
+
+
+  
   return <h1> No Restaurants Found</h1>
+  
 }
+
 }
    export default RestaurantList

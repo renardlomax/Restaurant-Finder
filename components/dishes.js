@@ -48,7 +48,7 @@ const GET_RESTAURANT_DISHES = gql`
   if (restId > 0){
 
     return (
-      <>
+      <div>
           {restaurant.dishes.map((res) => (
             <Col xs="6" sm="4" style={{ padding: 0 }} key={res.id}>
               <Card style={{ margin: "0 10px" }}>
@@ -74,7 +74,9 @@ const GET_RESTAURANT_DISHES = gql`
               </Card>
             </Col>
           ))}
-        </>
+
+          
+        </div>
         )}
         else{
           return <h1> No Dishes</h1>

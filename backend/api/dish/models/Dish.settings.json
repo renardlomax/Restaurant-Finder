@@ -31,6 +31,9 @@
     "restaurant": {
       "model": "restaurant",
       "via": "dishes"
+    },
+    "calories": {
+      "type": "integer"
     }
   }
 }
