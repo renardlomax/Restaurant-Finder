@@ -23,10 +23,9 @@ Backend -run npm install -> npm run build -> then npm run develop
 yarn dev
 ```
 
-## Video of App Working
- video of app.mp4
+
  
-<img src = 'video of app.mp4'>
+
  
  
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
