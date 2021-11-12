@@ -13,6 +13,7 @@ restaurantList.js is Web Component to render restaurants
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+![restaurantgif](https://user-images.githubusercontent.com/76239901/141482807-55ec76ac-a23c-463b-937a-70a20b4bd245.gif)
 
 First, run the development server:
 
