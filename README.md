@@ -22,7 +22,7 @@ Backend -run npm install -> npm run build -> then npm run develop
 # or
 yarn dev
 ```
-! [restaurants] (restaurant.gif)
+! [Restaurant-Finder] (restaurantgif.gif)
 
  
 
