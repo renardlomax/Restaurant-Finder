@@ -1,4 +1,5 @@
-#Next-React Frontend for Restaurant Finder
+## Next-React Frontend for Restaurant Finder
+
 Created a restaurant finder application with full functionality. This was my capstone project where I got to use new technologies and implement them.   
 
 ## use yarn and then yarn dev to run the code
